@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MindEase – Virtual Psychotherapist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chatbox">
+        <h2>MindEase</h2>
+        <form method="POST">
+            <textarea name="user_input" placeholder="How are you feeling today?" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+        {% if user_input %}
+        <div class="conversation">
+            <p><strong>You:</strong> {{ user_input }}</p>
+            <p><strong>MindEase:</strong> {{ bot_response }}</p>
+        </div>
+        {% endif %}
+
+        <a href="{{ url_for('stats') }}" class="stats-link">View Emotion Stats</a>
+    </div>
+</body>
+</html>
