@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MindEase – Emotion Stats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chatbox">
+        <h2>Emotion Statistics</h2>
+        <table>
+            <tr>
+                <th>Emotion</th>
+                <th>Count</th>
+            </tr>
+            {% for emotion, count in stats %}
+            <tr>
+                <td>{{ emotion.capitalize() }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('index') }}" class="stats-link">Back to Chat</a>
+    </div>
+</body>
+</html>
